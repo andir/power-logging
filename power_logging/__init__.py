@@ -37,7 +37,7 @@ def main():
 
     data = {}
     while True:
-        line = device.readline().decode('utf-8', '')
+        line = device.readline().decode('utf-8', errors='ignore')
 
         logger.debug(line)
         try:
