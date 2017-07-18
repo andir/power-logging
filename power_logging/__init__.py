@@ -43,9 +43,9 @@ def main():
         try:
             key, value = line.split('\t')
         except ValueError:
-            logger.error('Failed to parse line: {}', line)
+            logger.error('Failed to parse line: %s', line)
         else:
-            logger.debug('key: {}, value: {}', key, value)
+            logger.debug('key: %s, value: %s', key, value)
             data[key] = value
 
             json_body = [
