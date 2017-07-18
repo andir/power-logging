@@ -37,10 +37,7 @@ def main():
 
     data = {}
     while True:
-        try:
-            line = device.readline().decode('utf-8')
-        except UnicodeDecodeError:
-            continue
+        line = device.readline().decode('utf-8', '')
 
         logger.debug(line)
         try:
