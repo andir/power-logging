@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--device', type=argparse.FileType('r'), default='/dev/ttyUSB0', help='serial file')
+    parser.add_argument('--device', type=str, default='/dev/ttyUSB0', help='serial file')
     parser.add_argument('--speed', type=int, default=115200, help='baud rate')
     parser.add_argument('--influx-host', type=str, default=False, help='influx db server')
     parser.add_argument('--influx-port', type=int, default=8086, help='influx db port')
