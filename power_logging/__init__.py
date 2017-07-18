@@ -46,7 +46,10 @@ def main():
             logger.error('Failed to parse line: %s', line)
         else:
             logger.debug('key: %s, value: %s', key, value)
-            data[key] = value.strip()
+            try:
+                data[key] = int(value.strip())
+            except ValueError:
+                pass
 
             if key == 'Checksum':
 
