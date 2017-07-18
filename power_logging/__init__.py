@@ -29,7 +29,7 @@ def main():
     if args.influx_host:
 
         logger.info('Configuring db connection')
-        influx = influxdb.InfluxDBClient(host=args.influx_host, port=args.influx_port)
+        influx = influxdb.InfluxDBClient(host=args.influx_host, port=args.influx_port, database=args.influx_db)
     else:
         influx = None
 
