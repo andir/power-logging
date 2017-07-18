@@ -34,7 +34,6 @@ def main():
         influx = None
 
     device = serial.Serial(port=args.device, baudrate=args.speed)
-    device.open()
 
     data = {}
     for line in device.readlines():
