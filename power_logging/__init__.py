@@ -36,7 +36,8 @@ def main():
     device = serial.Serial(port=args.device, baudrate=args.speed)
 
     data = {}
-    for line in device.readlines():
+    while True:
+        line = device.readline()
         try:
             key, value = line.split('\t')
         except IndexError:
