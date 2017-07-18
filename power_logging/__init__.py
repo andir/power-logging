@@ -37,7 +37,11 @@ def main():
 
     data = {}
     while True:
-        line = device.readline().decode('utf-8')
+        try:
+            line = device.readline().decode('utf-8')
+        except UnicodeDecodeError:
+            continue
+
         logger.debug(line)
         try:
             key, value = line.split('\t')
