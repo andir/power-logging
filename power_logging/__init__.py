@@ -48,17 +48,19 @@ def main():
             logger.debug('key: %s, value: %s', key, value)
             data[key] = value.strip()
 
-            json_body = [
-                {
-                    "measurement": "mppt",
-                    "tags": {},
-                    "time": datetime.datetime.now().isoformat(),
-                    "fields": data
-                }
-            ]
-            logger.debug(json_body)
-            if influx:
-                influx.write_points(json_body)
+            if key == 'Checksum':
+
+                json_body = [
+                    {
+                        "measurement": "mppt",
+                        "tags": {},
+                        "time": datetime.datetime.now().isoformat(),
+                        "fields": data
+                    }
+                ]
+                logger.debug(json_body)
+                if influx:
+                    influx.write_points(json_body)
 
 
 if __name__ == "__main__":
