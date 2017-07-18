@@ -46,7 +46,7 @@ def main():
             logger.error('Failed to parse line: %s', line)
         else:
             logger.debug('key: %s, value: %s', key, value)
-            data[key] = value
+            data[key] = value.strip()
 
             json_body = [
                 {
