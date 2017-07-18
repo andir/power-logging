@@ -26,14 +26,10 @@ def main():
     else:
         logging.basicConfig(level=logging.INFO)
 
-    if args.influx:
-        parts = args.influx.split(':')
-        params = dict(host=parts[0])
-        if len(parts) > 1:
-            params['port'] = parts[1]
+    if args.influx_host:
 
         logger.info('Configuring db connection')
-        influx = influxdb.InfluxDBClient(**params)
+        influx = influxdb.InfluxDBClient(host=args.influx_host, port=args.influx_port)
     else:
         influx = None
 
