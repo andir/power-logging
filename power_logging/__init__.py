@@ -48,14 +48,12 @@ def main():
             logger.debug('key: %s, value: %s', key, value)
             data[key] = value.strip()
 
-            json_body = [
-                {
-                    "measurement": "mppt",
-                    "tags": {},
-                    "time": datetime.datetime.now().isoformat(),
-                    "fields": data
-                }
-            ]
+            json_body = {
+                "measurement": "mppt",
+                "tags": {},
+                "time": datetime.datetime.now().isoformat(),
+                "fields": data
+            }
             logger.debug(json_body)
             if influx:
                 influx.write(json_body)
